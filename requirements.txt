@@ -1,3 +1,4 @@
 dspy 
 openai
 streamlit
+python-dotenv
