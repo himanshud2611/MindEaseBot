@@ -19,8 +19,21 @@ colbertv2_wiki17_abstracts = dspy.ColBERTv2(url='http://20.102.90.50:2017/wiki17
 dspy.settings.configure(lm=turbo, rm=colbertv2_wiki17_abstracts)
 
 
+# Get the directory of the current script
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the path to intents.json
+json_path = os.path.join(current_dir, 'intents.json')
+
+# Open the file
+with open(json_path, 'r') as f:
+    data = json.load(f)
+
+
 # Load the dataset
-def load_dataset(file_path='D:\MindEaseBot\intents.json'):
+def load_dataset(file_name='intents.json'):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(current_dir, file_name)
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             data = json.load(file)
@@ -36,9 +49,6 @@ def load_dataset(file_path='D:\MindEaseBot\intents.json'):
         print(f"An unexpected error occurred: {str(e)}")
         return None
 
-with open('D:\MindEase\intents.json', 'r') as f:
-    data = json.load(f)
-print(data)
 
 # Verify the data is loaded correctly
 print(f"Number of intents: {len(data['intents'])}")
