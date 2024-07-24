@@ -155,9 +155,9 @@ def get_chatbot_response(user_input):
     intent, response = chatbot(user_input)
     return response
 
-st.set_page_config(page_title="MindEase", page_icon="🧠", layout="centered")
+st.set_page_config(page_title="MindEaseBot", page_icon="🧠", layout="centered")
 
-st.title("MindEase - your mental health chatbot! 🤖💚")
+st.title("MindEaseBot - your mental health chatbot! 🤖💚")
 
 # Initialize chat history
 if "messages" not in st.session_state:
